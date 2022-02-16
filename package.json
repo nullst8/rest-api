@@ -6,6 +6,7 @@
   "author": "cs4dow <csh4dow@protonmail.com>",
   "license": "MIT",
   "dependencies": {
+    "dotenv": "^16.0.0",
     "express": "^4.17.2",
     "pg": "^8.7.3"
   },
