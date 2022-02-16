@@ -3,8 +3,11 @@ import pool = require("./db");
 
 const app = express();
 
-app.listen(3000, () => console.log("listening on *:3000"));
 app.use(express.json());
+
+app.get("/", (_req, res) => {
+  res.send("<h1>RESTful API</h1>");
+});
 
 // create todo
 app.post("/todos", async (req, res) => {
@@ -48,3 +51,5 @@ app.delete("/todos/:id", async (req, res) => {
   await pool.query("delete from todo where id = $1", [id]);
   res.json("deleted");
 });
+
+app.listen(3000, () => console.log("listening on *:3000"));
