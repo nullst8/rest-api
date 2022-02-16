@@ -1,4 +1,4 @@
 create table todo(
-  id serial primarys key,
+  id serial primary key,
   description varchar(255)
 );
