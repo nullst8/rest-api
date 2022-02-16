@@ -6,8 +6,10 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const pool = require("./db");
 const app = (0, express_1.default)();
-app.listen(3000, () => console.log("listening on *:3000"));
 app.use(express_1.default.json());
+app.get("/", (_req, res) => {
+    res.send("<h1>RESTful API</h1>");
+});
 app.post("/todos", async (req, res) => {
     const { description } = req.body;
     const newTodo = await pool.query("insert into todo (description) values ($1) returning *", [description]);
@@ -36,4 +38,5 @@ app.delete("/todos/:id", async (req, res) => {
     await pool.query("delete from todo where id = $1", [id]);
     res.json("deleted");
 });
+app.listen(process.env.PORT || 3000, () => console.log("listening on *:3000"));
 //# sourceMappingURL=index.js.map
