@@ -25,7 +25,7 @@ const pg_1 = __importDefault(require("pg"));
 const dotenv = __importStar(require("dotenv"));
 dotenv.config();
 const pool = new pg_1.default.Pool({
-    user: process.env.USER,
+    user: process.env.USR,
     password: process.env.PASSWORD,
     database: process.env.DB,
     host: process.env.HOST,
